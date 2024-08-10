@@ -20,17 +20,18 @@
             background-color: #4a6a8e;
             padding: 20px;
             border-radius: 10px;
-            width: 300px;
+            width: 320px;
             transform: scale(2); /* Increase the size to 2x */
         }
         select, input, button {
-            font-size: 14px;
-            padding: 8px;
+            font-size: 16px;
+            padding: 12px; /* Increased padding for better alignment */
             margin: 10px 0;
             border-radius: 5px;
             border: none;
             width: 100%;
             text-align: center;
+            box-sizing: border-box; /* Ensure consistent sizing */
         }
         button {
             background-color: #67a1c7;
@@ -52,9 +53,9 @@
 <body>
     <!-- Login Section -->
     <div class="login-container" id="login-container">
-        <h1>Login</h1>
+        <h1>SKUlator</h1>
         <input type="password" id="accessCode" placeholder="Enter Access Code">
-        <button onclick="checkAccessCode()">Logging In</button>
+        <button onclick="checkAccessCode()">Sign In</button>
         <p id="error-message" class="error-message">Incorrect code, please try again.</p>
     </div>
 
