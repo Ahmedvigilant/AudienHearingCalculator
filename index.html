@@ -4,31 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audien Hearing Calculator</title>
+    <style>
+        body {
+            background-color: #34506e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator-container {
+            background-color: #4a6a8e;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transform: scale(3); /* Makes the tool 3x bigger */
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        select, input, button {
+            font-size: 16px;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background-color: #67a1c7;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #558aa5;
+        }
+    </style>
 </head>
 <body>
-    <h1>Audien Hearing Calculator</h1>
-    
-    <label for="type">Type:</label>
-    <select id="type">
-        <option value="Upgrade">Upgrade</option>
-        <option value="Paid Replacement (PP Only)">Paid Replacement (PP Only)</option>
-    </select>
+    <div class="calculator-container">
+        <h1>Audien Hearing Calculator</h1>
+        
+        <label for="type">Type:</label>
+        <select id="type">
+            <option value="Upgrade">Upgrade</option>
+            <option value="Paid Replacement (PP Only)">Paid Replacement (PP Only)</option>
+        </select>
 
-    <br/><br/>
+        <br/>
 
-    <label for="from">From:</label>
-    <input type="text" id="from">
+        <label for="from">From:</label>
+        <select id="from">
+            <option value="Atom">Atom</option>
+            <option value="Atom Pro">Atom Pro</option>
+            <option value="Atom 2">Atom 2</option>
+            <option value="Atom Pro 2">Atom Pro 2</option>
+            <option value="Ion">Ion</option>
+        </select>
 
-    <br/><br/>
+        <br/>
 
-    <label for="to">To:</label>
-    <input type="text" id="to">
+        <label for="to">To:</label>
+        <select id="to">
+            <option value="Atom Pro 2">Atom Pro 2</option>
+            <option value="Ion">Ion</option>
+        </select>
 
-    <br/><br/>
+        <br/>
 
-    <button onclick="calculateDiscount()">Calculate</button>
+        <button onclick="calculateDiscount()">Calculate</button>
 
-    <h2 id="result"></h2>
+        <h2 id="result"></h2>
+    </div>
 
     <script>
         function calculateDiscount() {
