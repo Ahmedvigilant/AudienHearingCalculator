@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audien Hearing Calculator</title>
+</head>
+<body>
+    <h1>Audien Hearing Calculator</h1>
+    
+    <label for="type">Type:</label>
+    <select id="type">
+        <option value="Upgrade">Upgrade</option>
+        <option value="Paid Replacement (PP Only)">Paid Replacement (PP Only)</option>
+    </select>
+
+    <br/><br/>
+
+    <label for="from">From:</label>
+    <input type="text" id="from">
+
+    <br/><br/>
+
+    <label for="to">To:</label>
+    <input type="text" id="to">
+
+    <br/><br/>
+
+    <button onclick="calculateDiscount()">Calculate</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateDiscount() {
+            var type = document.getElementById('type').value;
+            var from = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            var result;
+
+            if (type === "Upgrade") {
+                if (from === "Atom" && to === "Atom Pro 2") {
+                    result = 289 - 80;
+                } else if (from === "Atom Pro" && to === "Atom Pro 2") {
+                    result = 289 - 50;
+                } else if (from === "Atom 2" && to === "Atom Pro 2") {
+                    result = 289 - 50;
+                } else if (from === "Atom" && to === "Ion") {
+                    result = 489 - 250;
+                } else if (from === "Atom Pro" && to === "Ion") {
+                    result = 489 - 150;
+                } else if (from === "Atom 2" && to === "Ion") {
+                    result = 489 - 150;
+                } else if (from === "Atom Pro 2" && to === "Ion") {
+                    result = 489 - 100;
+                } else {
+                    result = "NA";
+                }
+            } else if (type === "Paid Replacement (PP Only)") {
+                if (from === "Atom") {
+                    result = 99 - 24;
+                } else if (from === "Atom Pro") {
+                    result = 249 - 34;
+                } else if (from === "Atom 2") {
+                    result = 189 - 39;
+                } else if (from === "Atom Pro 2") {
+                    result = 289 - 49;
+                } else if (from === "Ion") {
+                    result = 489 - 89;
+                } else {
+                    result = "NA";
+                }
+            } else {
+                result = "";
+            }
+
+            document.getElementById('result').innerText = "Amount to Discount: $" + result;
+        }
+    </script>
+</body>
+</html>
