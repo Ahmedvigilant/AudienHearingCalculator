@@ -14,13 +14,14 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            text-align: center;
         }
         .login-container, .calculator-container {
             background-color: #4a6a8e;
             padding: 20px;
             border-radius: 10px;
-            text-align: center;
             width: 300px;
+            transform: scale(2); /* Increase the size to 2x */
         }
         select, input, button {
             font-size: 14px;
@@ -45,7 +46,6 @@
         }
         .calculator-container {
             display: none;
-            transform: scale(2.5); /* Adjust size to fit without scrolling */
         }
     </style>
 </head>
@@ -54,7 +54,7 @@
     <div class="login-container" id="login-container">
         <h1>Login</h1>
         <input type="password" id="accessCode" placeholder="Enter Access Code">
-        <button onclick="checkAccessCode()">Login</button>
+        <button onclick="checkAccessCode()">Logging In</button>
         <p id="error-message" class="error-message">Incorrect code, please try again.</p>
     </div>
 
