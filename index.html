@@ -31,11 +31,13 @@
             margin: 10px 0;
             border-radius: 5px;
             border: none;
+            width: 100%;
         }
         button {
             background-color: #67a1c7;
             color: #ffffff;
             cursor: pointer;
+            width: 100%;
         }
         button:hover {
             background-color: #558aa5;
@@ -47,14 +49,14 @@
         <h1>Audien Hearing Calculator</h1>
         
         <label for="type">Type:</label>
-        <select id="type">
+        <select id="type" onchange="toggleToField()">
             <option value="Upgrade">Upgrade</option>
             <option value="Paid Replacement (PP Only)">Paid Replacement (PP Only)</option>
         </select>
 
         <br/>
 
-        <label for="from">From:</label>
+        <label for="from" id="from-label">From:</label>
         <select id="from">
             <option value="Atom">Atom</option>
             <option value="Atom Pro">Atom Pro</option>
@@ -65,13 +67,14 @@
 
         <br/>
 
-        <label for="to">To:</label>
-        <select id="to">
-            <option value="Atom Pro 2">Atom Pro 2</option>
-            <option value="Ion">Ion</option>
-        </select>
-
-        <br/>
+        <div id="to-container">
+            <label for="to">To:</label>
+            <select id="to">
+                <option value="Atom Pro 2">Atom Pro 2</option>
+                <option value="Ion">Ion</option>
+            </select>
+            <br/>
+        </div>
 
         <button onclick="calculateDiscount()">Calculate</button>
 
@@ -79,6 +82,20 @@
     </div>
 
     <script>
+        function toggleToField() {
+            var type = document.getElementById('type').value;
+            var toContainer = document.getElementById('to-container');
+            var fromLabel = document.getElementById('from-label');
+
+            if (type === "Paid Replacement (PP Only)") {
+                toContainer.style.display = 'none';  // Hide the 'To' field
+                fromLabel.innerText = 'Product:';    // Change 'From' to 'Product'
+            } else {
+                toContainer.style.display = 'block'; // Show the 'To' field
+                fromLabel.innerText = 'From:';       // Change 'Product' back to 'From'
+            }
+        }
+
         function calculateDiscount() {
             var type = document.getElementById('type').value;
             var from = document.getElementById('from').value;
