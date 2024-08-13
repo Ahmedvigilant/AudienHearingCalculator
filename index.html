@@ -133,28 +133,28 @@
     if (type === "Upgrade") {
         if (from === "Atom" && to === "Atom Pro") {
             result = 249 - 50;
-            upgradePriceMessage = "Customer's Upgrade Price: $50";
+            upgradePriceMessage = "CX's Upgrade Price: $50";
         } else if (from === "Atom" && to === "Atom Pro 2") {
             result = 289 - 80;
-            upgradePriceMessage = "Customer's Upgrade Price: $80";
+            upgradePriceMessage = "CX's Upgrade Price: $80";
         } else if (from === "Atom" && to === "Ion") {
             result = 489 - 250;
-            upgradePriceMessage = "Customer's Upgrade Price: $250";
+            upgradePriceMessage = "CX's Upgrade Price: $250";
         } else if (from === "Atom Pro" && to === "Atom Pro 2") {
             result = 289 - 50;
-            upgradePriceMessage = "Customer's Upgrade Price: $50";
+            upgradePriceMessage = "CX's Upgrade Price: $50";
         } else if (from === "Atom Pro" && to === "Ion") {
             result = 489 - 150;
-            upgradePriceMessage = "Customer's Upgrade Price: $150";
+            upgradePriceMessage = "CX's Upgrade Price: $150";
         } else if (from === "Atom 2" && to === "Ion") {
             result = 489 - 150;
-            upgradePriceMessage = "Customer's Upgrade Price: $150";
+            upgradePriceMessage = "CX's Upgrade Price: $150";
         } else if (from === "Atom 2" && to === "Atom Pro 2") {
             result = 289 - 50;
-            upgradePriceMessage = "Customer's Upgrade Price: $50";
+            upgradePriceMessage = "CX's Upgrade Price: $50";
         } else if (from === "Atom Pro 2" && to === "Ion") {
             result = 489 - 100;
-            upgradePriceMessage = "Customer's Upgrade Price: $100";
+            upgradePriceMessage = "CX's Upgrade Price: $100";
         } else {
             result = "NA";
         }
@@ -177,9 +177,9 @@
     }
 
     if (type === "Upgrade" && result !== "NA") {
-        document.getElementById('result').innerText = upgradePriceMessage + "\nAmount to Discount: $" + result;
+        document.getElementById('result').innerText = upgradePriceMessage + "\nInternal's discount: $" + result;
     } else {
-        document.getElementById('result').innerText = "Amount to Discount: $" + result;
+        document.getElementById('result').innerText = "Internal's discount: $" + result;
     }
 }
     </script>
