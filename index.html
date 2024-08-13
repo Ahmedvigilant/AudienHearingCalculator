@@ -1,171 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKUlator</title>
-    <style>
-        body {
-            background-color: #34506e;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
+function calculateDiscount() {
+    var type = document.getElementById('type').value;
+    var from = document.getElementById('from').value;
+    var to = document.getElementById('to').value;
+    var result;
+
+    if (type === "Upgrade") {
+        if (from === "Atom" && to === "Atom Pro") {
+            result = 199 - 50;
+        } else if (from === "Atom" && to === "Atom Pro 2") {
+            result = 289 - 80;
+        } else if (from === "Atom" && to === "Ion") {
+            result = 489 - 250;
+        } else if (from === "Atom Pro" && to === "Atom Pro 2") {
+            result = 289 - 50;
+        } else if (from === "Atom Pro" && to === "Ion") {
+            result = 489 - 150;
+        } else if (from === "Atom 2" && to === "Ion") {
+            result = 489 - 150;
+        } else if (from === "Atom 2" && to === "Atom Pro 2") {
+            result = 289 - 50;
+        } else if (from === "Atom Pro 2" && to === "Ion") {
+            result = 489 - 100;
+        } else {
+            result = "NA";
         }
-        .login-container, .calculator-container {
-            background-color: #4a6a8e;
-            padding: 20px;
-            border-radius: 10px;
-            width: 320px;
-            transform: scale(2); /* Increase the size to 2x */
+    } else if (type === "Paid Replacement (PP Only)") {
+        if (from === "Atom") {
+            result = 99 - 24;
+        } else if (from === "Atom Pro") {
+            result = 249 - 34;
+        } else if (from === "Atom 2") {
+            result = 189 - 39;
+        } else if (from === "Atom Pro 2") {
+            result = 289 - 49;
+        } else if (from === "Ion") {
+            result = 489 - 89;
+        } else {
+            result = "NA";
         }
-        select, input, button {
-            font-size: 16px;
-            padding: 12px; /* Increased padding for better alignment */
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
-            width: 100%;
-            text-align: center;
-            box-sizing: border-box; /* Ensure consistent sizing */
-        }
-        button {
-            background-color: #67a1c7;
-            color: #ffffff;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #558aa5;
-        }
-        .error-message {
-            color: red;
-            display: none;
-        }
-        .calculator-container {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <!-- Login Section -->
-    <div class="login-container" id="login-container">
-        <h1>SKUlator</h1>
-        <input type="password" id="accessCode" placeholder="Enter Access Code">
-        <button onclick="checkAccessCode()">Sign In</button>
-        <p id="error-message" class="error-message">Incorrect code, please try again.</p>
-    </div>
+    } else {
+        result = "";
+    }
 
-    <!-- Calculator Section -->
-    <div class="calculator-container" id="calculator-container">
-        <h1>Audien Hearing Calculator</h1>
-        
-        <label for="type">Type:</label>
-        <select id="type" onchange="toggleToField()">
-            <option value="Upgrade">Upgrade</option>
-            <option value="Paid Replacement (PP Only)">Paid Replacement (PP Only)</option>
-        </select>
-
-        <br/>
-
-        <label for="from" id="from-label">From:</label>
-        <select id="from">
-            <option value="Atom">Atom</option>
-            <option value="Atom Pro">Atom Pro</option>
-            <option value="Atom 2">Atom 2</option>
-            <option value="Atom Pro 2">Atom Pro 2</option>
-            <option value="Ion">Ion</option>
-        </select>
-
-        <br/>
-
-        <div id="to-container">
-            <label for="to">To:</label>
-            <select id="to">
-                <option value="Atom Pro 2">Atom Pro 2</option>
-                <option value="Ion">Ion</option>
-            </select>
-            <br/>
-        </div>
-
-        <button onclick="calculateDiscount()">Calculate</button>
-
-        <h2 id="result"></h2>
-    </div>
-
-    <script>
-        function checkAccessCode() {
-            var code = document.getElementById('accessCode').value;
-            var correctCode = 'CXOPS101'; // Set your fixed code here
-            if (code === correctCode) {
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('calculator-container').style.display = 'block';
-            } else {
-                document.getElementById('error-message').style.display = 'block';
-            }
-        }
-
-        function toggleToField() {
-            var type = document.getElementById('type').value;
-            var toContainer = document.getElementById('to-container');
-            var fromLabel = document.getElementById('from-label');
-
-            if (type === "Paid Replacement (PP Only)") {
-                toContainer.style.display = 'none';  // Hide the 'To' field
-                fromLabel.innerText = 'Product:';    // Change 'From' to 'Product'
-            } else {
-                toContainer.style.display = 'block'; // Show the 'To' field
-                fromLabel.innerText = 'From:';       // Change 'Product' back to 'From'
-            }
-        }
-
-        function calculateDiscount() {
-            var type = document.getElementById('type').value;
-            var from = document.getElementById('from').value;
-            var to = document.getElementById('to').value;
-            var result;
-
-            if (type === "Upgrade") {
-                if (from === "Atom" && to === "Atom Pro 2") {
-                    result = 289 - 80;
-                } else if (from === "Atom Pro" && to === "Atom Pro 2") {
-                    result = 289 - 50;
-                } else if (from === "Atom 2" && to === "Atom Pro 2") {
-                    result = 289 - 50;
-                } else if (from === "Atom" && to === "Ion") {
-                    result = 489 - 250;
-                } else if (from === "Atom Pro" && to === "Ion") {
-                    result = 489 - 150;
-                } else if (from === "Atom 2" && to === "Ion") {
-                    result = 489 - 150;
-                } else if (from === "Atom Pro 2" && to === "Ion") {
-                    result = 489 - 100;
-                } else {
-                    result = "NA";
-                }
-            } else if (type === "Paid Replacement (PP Only)") {
-                if (from === "Atom") {
-                    result = 99 - 24;
-                } else if (from === "Atom Pro") {
-                    result = 249 - 34;
-                } else if (from === "Atom 2") {
-                    result = 189 - 39;
-                } else if (from === "Atom Pro 2") {
-                    result = 289 - 49;
-                } else if (from === "Ion") {
-                    result = 489 - 89;
-                } else {
-                    result = "NA";
-                }
-            } else {
-                result = "";
-            }
-
-            document.getElementById('result').innerText = "Amount to Discount: $" + result;
-        }
-    </script>
-</body>
-</html>
+    document.getElementById('result').innerText = "Amount to Discount: $" + result;
+}
