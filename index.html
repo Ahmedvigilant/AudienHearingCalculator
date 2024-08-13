@@ -123,14 +123,14 @@
         }
 
         function calculateDiscount() {
-            var type = document.getElementById('type').value;
-            var from = document.getElementById('from').value;
-            var to = document.getElementById('to').value;
-            var result;
+    var type = document.getElementById('type').value;
+    var from = document.getElementById('from').value;
+    var to = document.getElementById('to').value;
+    var result;
 
-            if (type === "Upgrade") {
+    if (type === "Upgrade") {
         if (from === "Atom" && to === "Atom Pro") {
-            result = 249 - 50;
+            result = 199 - 50;
         } else if (from === "Atom" && to === "Atom Pro 2") {
             result = 289 - 80;
         } else if (from === "Atom" && to === "Ion") {
@@ -148,26 +148,26 @@
         } else {
             result = "NA";
         }
-            } else if (type === "Paid Replacement (PP Only)") {
-                if (from === "Atom") {
-                    result = 99 - 24;
-                } else if (from === "Atom Pro") {
-                    result = 249 - 34;
-                } else if (from === "Atom 2") {
-                    result = 189 - 39;
-                } else if (from === "Atom Pro 2") {
-                    result = 289 - 49;
-                } else if (from === "Ion") {
-                    result = 489 - 89;
-                } else {
-                    result = "NA";
-                }
-            } else {
-                result = "";
-            }
-
-            document.getElementById('result').innerText = "Amount to Discount: $" + result;
+    } else if (type === "Paid Replacement (PP Only)") {
+        if (from === "Atom") {
+            result = 99 - 24;
+        } else if (from === "Atom Pro") {
+            result = 249 - 34;
+        } else if (from === "Atom 2") {
+            result = 189 - 39;
+        } else if (from === "Atom Pro 2") {
+            result = 289 - 49;
+        } else if (from === "Ion") {
+            result = 489 - 89;
+        } else {
+            result = "NA";
         }
+    } else {
+        result = "";
+    }
+
+    document.getElementById('result').innerText = "Amount to Discount: $" + result;
+}
     </script>
 </body>
 </html>
