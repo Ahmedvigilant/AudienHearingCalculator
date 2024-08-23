@@ -16,7 +16,7 @@
             margin: 0;
             text-align: center;
         }
-        .login-container, .calculator-container {
+        .calculator-container {
             background-color: #4a6a8e;
             padding: 20px;
             border-radius: 10px;
@@ -45,20 +45,9 @@
             color: red;
             display: none;
         }
-        .calculator-container {
-            display: none;
-        }
     </style>
 </head>
 <body>
-    <!-- Login Section -->
-    <div class="login-container" id="login-container">
-        <h1>SKUlator</h1>
-        <input type="password" id="accessCode" placeholder="Enter Access Code">
-        <button onclick="checkAccessCode()">Sign In</button>
-        <p id="error-message" class="error-message">Incorrect code, please try again.</p>
-    </div>
-
     <!-- Calculator Section -->
     <div class="calculator-container" id="calculator-container">
         <h1>Audien Hearing Calculator</h1>
@@ -98,17 +87,6 @@
     </div>
 
     <script>
-        function checkAccessCode() {
-            var code = document.getElementById('accessCode').value;
-            var correctCode = 'CXOPS101'; // Set your fixed code here
-            if (code === correctCode) {
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('calculator-container').style.display = 'block';
-            } else {
-                document.getElementById('error-message').style.display = 'block';
-            }
-        }
-
         function toggleToField() {
             var type = document.getElementById('type').value;
             var toContainer = document.getElementById('to-container');
@@ -124,69 +102,69 @@
         }
 
         function calculateDiscount() {
-    var type = document.getElementById('type').value;
-    var from = document.getElementById('from').value;
-    var to = document.getElementById('to').value;
-    var result;
-    var upgradePriceMessage = "";
+            var type = document.getElementById('type').value;
+            var from = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            var result;
+            var upgradePriceMessage = "";
 
-    if (type === "Upgrade") {
-        if (from === "Atom" && to === "Atom Pro") {
-            result = 249 - 50;
-            upgradePriceMessage = "CX's Upgrade Price: $50";
-        } else if (from === "Atom" && to === "Atom Pro 2") {
-            result = 289 - 80;
-            upgradePriceMessage = "CX's Upgrade Price: $80";
-        } else if (from === "Atom" && to === "Ion") {
-            result = 489 - 250;
-            upgradePriceMessage = "CX's Upgrade Price: $250";
-        } else if (from === "Atom Pro" && to === "Atom Pro 2") {
-            result = 289 - 50;
-            upgradePriceMessage = "CX's Upgrade Price: $50";
-        } else if (from === "Atom Pro" && to === "Ion") {
-            result = 489 - 150;
-            upgradePriceMessage = "CX's Upgrade Price: $150";
-        } else if (from === "Atom 2" && to === "Ion") {
-            result = 489 - 150;
-            upgradePriceMessage = "CX's Upgrade Price: $150";
-        } else if (from === "Atom 2" && to === "Atom Pro 2") {
-            result = 289 - 50;
-            upgradePriceMessage = "CX's Upgrade Price: $50";
-        } else if (from === "Atom Pro 2" && to === "Ion") {
-            result = 489 - 100;
-            upgradePriceMessage = "CX's Upgrade Price: $100";
-        } else {
-            result = "NA";
-        }
-    } else if (type === "Paid Replacement (PP Only)") {
-        if (from === "Atom") {
-            result = 99 - 24;
-        upgradePriceMessage = "CX's Replacement Price: $24";
-        } else if (from === "Atom Pro") {
-            result = 249 - 34;
-        upgradePriceMessage = "CX's Replacement Price: $34";
-        } else if (from === "Atom 2") {
-            result = 189 - 39;
-            upgradePriceMessage = "CX's Replacement Price: $39";
-        } else if (from === "Atom Pro 2") {
-            result = 289 - 49;
-upgradePriceMessage = "CX's Replacement Price: $49";
-        } else if (from === "Ion") {
-            result = 489 - 89;
-            upgradePriceMessage = "CX's Replacement Price: $89";
-        } else {
-            result = "NA";
-        }
-    } else {
-        result = "";
-    }
+            if (type === "Upgrade") {
+                if (from === "Atom" && to === "Atom Pro") {
+                    result = 249 - 50;
+                    upgradePriceMessage = "CX's Upgrade Price: $50";
+                } else if (from === "Atom" && to === "Atom Pro 2") {
+                    result = 289 - 80;
+                    upgradePriceMessage = "CX's Upgrade Price: $80";
+                } else if (from === "Atom" && to === "Ion") {
+                    result = 489 - 250;
+                    upgradePriceMessage = "CX's Upgrade Price: $250";
+                } else if (from === "Atom Pro" && to === "Atom Pro 2") {
+                    result = 289 - 50;
+                    upgradePriceMessage = "CX's Upgrade Price: $50";
+                } else if (from === "Atom Pro" && to === "Ion") {
+                    result = 489 - 150;
+                    upgradePriceMessage = "CX's Upgrade Price: $150";
+                } else if (from === "Atom 2" && to === "Ion") {
+                    result = 489 - 150;
+                    upgradePriceMessage = "CX's Upgrade Price: $150";
+                } else if (from === "Atom 2" && to === "Atom Pro 2") {
+                    result = 289 - 50;
+                    upgradePriceMessage = "CX's Upgrade Price: $50";
+                } else if (from === "Atom Pro 2" && to === "Ion") {
+                    result = 489 - 100;
+                    upgradePriceMessage = "CX's Upgrade Price: $100";
+                } else {
+                    result = "NA";
+                }
+            } else if (type === "Paid Replacement (PP Only)") {
+                if (from === "Atom") {
+                    result = 99 - 24;
+                    upgradePriceMessage = "CX's Replacement Price: $24";
+                } else if (from === "Atom Pro") {
+                    result = 249 - 34;
+                    upgradePriceMessage = "CX's Replacement Price: $34";
+                } else if (from === "Atom 2") {
+                    result = 189 - 39;
+                    upgradePriceMessage = "CX's Replacement Price: $39";
+                } else if (from === "Atom Pro 2") {
+                    result = 289 - 49;
+                    upgradePriceMessage = "CX's Replacement Price: $49";
+                } else if (from === "Ion") {
+                    result = 489 - 89;
+                    upgradePriceMessage = "CX's Replacement Price: $89";
+                } else {
+                    result = "NA";
+                }
+            } else {
+                result = "";
+            }
 
-    if (type === "Upgrade" && result !== "NA") {
-        document.getElementById('result').innerText = upgradePriceMessage + "\nInternal's discount: $" + result;
-    } else {
-        document.getElementById('result').innerText = "Internal's discount: $" + result;
-    }
-}
+            if (result !== "NA") {
+                document.getElementById('result').innerText = upgradePriceMessage + "\nInternal's discount: $" + result;
+            } else {
+                document.getElementById('result').innerText = "Internal's discount: $" + result;
+            }
+        }
     </script>
 </body>
 </html>
