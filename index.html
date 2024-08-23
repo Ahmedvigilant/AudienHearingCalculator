@@ -161,14 +161,19 @@
     } else if (type === "Paid Replacement (PP Only)") {
         if (from === "Atom") {
             result = 99 - 24;
+        upgradePriceMessage = "CX's Replacement Price: $24";
         } else if (from === "Atom Pro") {
             result = 249 - 34;
+        upgradePriceMessage = "CX's Replacement Price: $34";
         } else if (from === "Atom 2") {
             result = 189 - 39;
+            upgradePriceMessage = "CX's Replacement Price: $39";
         } else if (from === "Atom Pro 2") {
             result = 289 - 49;
+upgradePriceMessage = "CX's Replacement Price: $49";
         } else if (from === "Ion") {
             result = 489 - 89;
+            upgradePriceMessage = "CX's Replacement Price: $89";
         } else {
             result = "NA";
         }
